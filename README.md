@@ -2,6 +2,49 @@
 
 Welcome to your first backend development activity. In this lab, you will build a functional web server from scratch using Node.js—without external frameworks like Express.
 
+## Running the completed project
+
+From the repository root:
+
+```bash
+cd basic-backend
+npm start
+```
+
+You can also start the server with `node server.js` from `basic-backend/`.
+The project uses Node.js built-in modules, so no dependency installation is required.
+Open `http://localhost:3000` in your browser. Stop the server with `Ctrl+C`.
+
+| Path | Status | Content type | Response |
+| --- | --- | --- | --- |
+| `/` | 200 | `text/plain` | `Hello, World!` |
+| `/about` | 200 | `text/plain` | `This is the about page.` |
+| `/data` | 200 | `application/json` | `{ "name": "Alice", "age": 21 }` |
+| Any other path | 404 | `text/plain` | `Page not found` |
+
+The implementation is organized as follows:
+
+```text
+basic-backend/
+├── package.json
+├── package-lock.json
+├── server.js
+├── routes/
+│   └── routes.js
+├── controllers/
+│   ├── homeController.js
+│   ├── aboutController.js
+│   └── dataController.js
+└── data/
+    └── person.json
+```
+
+`server.js` starts the HTTP server, `routes/routes.js` selects a controller,
+and the controllers send responses. The `/data` controller loads its sample
+record from `data/person.json`.
+
+---
+
 ## Learning Objectives
 By the end of this activity, you will be able to:
 - Initialize a Node.js project.
